@@ -84,7 +84,7 @@ final class AdminLoginAuthenticator extends AbstractFormLoginAuthenticator imple
             return false;
         }
 
-        if (!$user->hasRole('ROLE_ADMIN')) {
+        if (!$user->hasRole('ROLE_ADMIN') && !$user->hasRole('ROLE_SONATA_ADMIN')) {
             throw new CustomUserMessageAuthenticationException("You don't have permission to access that page.");
         }
 
